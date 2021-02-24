@@ -60,7 +60,12 @@
 - (void)payCardsRecognizer:(PayCardsRecognizer *)payCardsRecognizer didCancel:(PayCardsRecognizerResult *)result{
     NSLog(@"didCancel %@ %@", result.recognizedNumber, result.recognizedExpireDateYear);
     [_pcViewController dismissViewControllerAnimated:true completion:nil];
-    _result(nil);
+    _result(@{
+              @"cardHolderName": @"",
+              @"cardNumber": @"",
+              @"expiryMonth": @"",
+              @"expiryYear": @""
+              });
 }
 
 static id ObjectOrNull(id object) {
